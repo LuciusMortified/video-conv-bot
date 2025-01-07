@@ -2,11 +2,11 @@ package logger
 
 type FieldChain []Field
 
-func WithField[T any](k string, v T) FieldChain {
+func With[T any](k string, v T) FieldChain {
 	return FieldChain{NewField(k, v)}
 }
 
-func (c FieldChain) WithField(k string, v interface{}) FieldChain {
+func (c FieldChain) With(k string, v interface{}) FieldChain {
 	return append(c, Field{k, v})
 }
 
